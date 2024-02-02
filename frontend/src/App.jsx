@@ -61,7 +61,7 @@ function App() {
           className="webcam"
         />
         <button onClick={capture}>Capture Photo</button>
-        {insect && <p>Predicted Insect: {insect}</p>}
+        {insect && <p>Causa posible de la picadura: {insect}</p>}
       </header>
     </div>
   );
