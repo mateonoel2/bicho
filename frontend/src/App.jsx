@@ -11,8 +11,11 @@ const flaskApiUrl = 'https://bichoback-production.up.railway.app/predict'; // Up
 function App() {
   const webcamRef = useRef(null);
   const [insect, setInsect] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const capture = useCallback(async () => {
+    setLoading(true); // Set loading to true when starting the capture process
+
     const imageSrc = webcamRef.current.getScreenshot();
     const formData = new FormData();
     formData.append('file', dataURLtoFile(imageSrc, 'capturedImage.jpg'));
@@ -35,6 +38,8 @@ function App() {
       console.log('Insect prediction:', insectPrediction);
     } catch (error) {
       console.error('Error capturing and predicting:', error);
+    } finally {
+      setLoading(false); // Set loading back to false when the process is completed (success or error)
     }
   }, [webcamRef]);
 
@@ -60,7 +65,10 @@ function App() {
           screenshotFormat="image/jpeg"
           className="webcam"
         />
-        <button onClick={capture}>Capture Photo</button>
+        <button onClick={capture} disabled={loading}>
+          Capture Photo
+        </button>
+        {loading && <p>Cargando...</p>}
         {insect && <p>Causa posible de la picadura: {insect}</p>}
       </header>
     </div>
