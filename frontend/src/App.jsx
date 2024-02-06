@@ -6,7 +6,7 @@ import axios from 'axios';
 const cloudinaryCloudName = 'dalsog2hb';
 const cloudinaryUploadPreset = 'alphtdg5';
 const cloudinaryApiKey = '778342524695887';
-const flaskApiUrl = 'https://bichoback-production.up.railway.app/predict'; // Update with your Flask API URL
+const flaskApiUrl = 'https://web-production-010bd.up.railway.app//predict'; // Update with your Flask API URL
 
 function App() {
   const webcamRef = useRef(null);
