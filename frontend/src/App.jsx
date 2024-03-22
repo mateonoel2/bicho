@@ -68,7 +68,7 @@ function App() {
         <button onClick={capture} disabled={loading}>
           Capture Photo
         </button>
-        {loading && <p>Cargando...</p>}
+        {loading && <p>Loading...</p>}
         {insect && <p>Causa posible de la picadura: {insect}</p>}
       </header>
     </div>
