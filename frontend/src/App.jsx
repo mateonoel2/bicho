@@ -69,7 +69,7 @@ function App() {
           Capture Photo
         </button>
         {loading && <p>Loading...</p>}
-        {insect && <p>Causa posible de la picadura: {insect}</p>}
+        {insect && <p>Result: {insect}</p>}
       </header>
     </div>
   );
